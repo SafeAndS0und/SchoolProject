@@ -13,7 +13,7 @@ public class Database {
      * @param password
      * @return
      */
-    private Connection connect(String user, String password) {
+    public Connection connect(String user, String password) {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school_project", user, password);
             System.out.println("Connected to databse");
