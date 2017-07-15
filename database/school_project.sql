@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lip 2017, 13:37
--- Wersja serwera: 10.1.21-MariaDB
--- Wersja PHP: 5.6.30
+-- Czas generowania: 15 Lip 2017, 13:49
+-- Wersja serwera: 10.1.19-MariaDB
+-- Wersja PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,16 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `school_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `drugitest`
+--
+
+CREATE TABLE `drugitest` (
+  `cos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
