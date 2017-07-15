@@ -5,7 +5,7 @@ import java.sql.*;
 public class Database {
 
     private Connection con;
-    private Statement stmt;
+    private PreparedStatement prepstmt;
     private ResultSet rs;
 
     /**
@@ -27,33 +27,22 @@ public class Database {
     }
     
     /**
-     * Tworzy statement (nwm co to xd)
-     * @return
+     * Dodaje nauczyciela
+     * @param name
+     * @param password
      */
-    public Statement statement() {
+    
+    public void addTeacher(String name, String password) {
+    	String query = "INSTERT INTO teachers (username, password)" + "VALUES (?,?)";
+    	
     	try {
-    		stmt = con.createStatement();
-    		return stmt;
+    		prepstmt = con.prepareStatement(query);
+    		prepstmt.setString(1, name);
+    		prepstmt.setString(2, password);
     		
     	} catch(Exception e) {
     		System.out.println(e);
     	}
-    	return stmt;
-    }
-
-    /*
-     * Tworzy zapytanie np.
-     * select * from teacher
-     */
-    public ResultSet rs(String query) {
-    	try {
-    		rs = stmt.executeQuery(query);
-    		return rs;
-    		
-    	} catch(Exception e) {
-    		System.out.println(e);
-    	}
-    	return rs;
     }
 
 }
