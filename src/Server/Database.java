@@ -32,32 +32,18 @@ public class Database {
      * @param password
      */
     
-    public void addTeacher(String name, String password) {
-    	String query = "INSTERT INTO teachers (username, password)" + "VALUES (?,?)";
-    	
-    	try {
+	public void addTeacher(String name, String password) {
+		String query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
+
+		try {
     		prepstmt = con.prepareStatement(query);
     		prepstmt.setString(1, name);
     		prepstmt.setString(2, password);
+    		prepstmt.execute();
     		
     	} catch(Exception e) {
     		System.out.println(e);
     	}
-    }
-
-    /**
-     * Tworzy zapytanie np.
-     * select * from teacher
-     */
-    public ResultSet rs(String query) {
-    	try {
-    		rs = prepstmt.executeQuery(query);
-    		return rs;
-    		
-    	} catch(Exception e) {
-    		System.out.println(e);
-    	}
-    	return rs;
     }
 
 }
