@@ -22,5 +22,6 @@ public class Main extends Application {
         
         Database db = new Database();
 		db.connect("root", "");
+		db.addTeacher("Piotr", "Piotr");
     }
 }
