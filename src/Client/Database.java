@@ -30,6 +30,12 @@ public class Database {
         return con;
     }
 
+    /**
+     * Dodaje ucznia do bazy danych
+     * @param name imie
+     * @param lastName nazwisko
+     * @param whatClass klasa
+     */
     public void addStudent(String name, String lastName, String whatClass){
 
         String query = "INSERT INTO student (name, lastName, whatClass)" +

@@ -41,7 +41,7 @@ public class Database {
     	return stmt;
     }
 
-    /*
+    /**
      * Tworzy zapytanie np.
      * select * from teacher
      */

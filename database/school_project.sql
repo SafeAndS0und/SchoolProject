@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lip 2017, 22:41
+-- Czas generowania: 15 Lip 2017, 23:33
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 5.6.30
 
@@ -19,6 +19,24 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `school_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `questions`
+--
+
+CREATE TABLE `questions` (
+  `ID` int(11) NOT NULL,
+  `question` varchar(1000) NOT NULL,
+  `answerA` varchar(255) NOT NULL,
+  `answerB` varchar(255) NOT NULL,
+  `answerC` varchar(255) NOT NULL,
+  `answerD` varchar(255) NOT NULL,
+  `correctAnswer` varchar(11) NOT NULL,
+  `teacherID` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -66,6 +84,13 @@ CREATE TABLE `teacher` (
 --
 
 --
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `teacherID` (`teacherID`);
+
+--
 -- Indexes for table `results`
 --
 ALTER TABLE `results`
@@ -89,6 +114,11 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT dla tabeli `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `results`
 --
