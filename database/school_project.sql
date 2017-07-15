@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Lip 2017, 17:56
+-- Czas generowania: 15 Lip 2017, 13:37
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 5.6.30
 
@@ -31,6 +31,19 @@ CREATE TABLE `student` (
   `imie` varchar(255) NOT NULL,
   `nazwisko` varchar(255) NOT NULL,
   `klasa` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `test`
+--
+
+CREATE TABLE `test` (
+  `test` int(123) NOT NULL,
+  `test2` int(123) NOT NULL,
+  `test3` int(123) NOT NULL,
+  `test4` int(123) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
