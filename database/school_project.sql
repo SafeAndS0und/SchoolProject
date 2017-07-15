@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lip 2017, 22:01
+-- Czas generowania: 15 Lip 2017, 22:41
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 5.6.30
 
@@ -23,14 +23,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `results`
+--
+
+CREATE TABLE `results` (
+  `ID` int(11) NOT NULL,
+  `studentID` int(11) NOT NULL,
+  `teacherID` int(11) NOT NULL,
+  `askedQuestions` int(11) NOT NULL,
+  `correctAnswers` int(11) NOT NULL,
+  `result` int(11) NOT NULL,
+  `time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `student`
 --
 
 CREATE TABLE `student` (
   `ID` int(11) NOT NULL,
-  `imie` varchar(255) NOT NULL,
-  `nazwisko` varchar(255) NOT NULL,
-  `klasa` varchar(11) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `whatClass` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,6 +66,14 @@ CREATE TABLE `teacher` (
 --
 
 --
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `studentID` (`studentID`),
+  ADD KEY `teacherID` (`teacherID`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
@@ -66,10 +90,15 @@ ALTER TABLE `teacher`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `results`
+--
+ALTER TABLE `results`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT dla tabeli `student`
 --
 ALTER TABLE `student`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT dla tabeli `teacher`
 --
