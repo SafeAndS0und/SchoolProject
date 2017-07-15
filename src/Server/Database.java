@@ -45,4 +45,19 @@ public class Database {
     	}
     }
 
+    /**
+     * Tworzy zapytanie np.
+     * select * from teacher
+     */
+    public ResultSet rs(String query) {
+    	try {
+    		rs = prepstmt.executeQuery(query);
+    		return rs;
+    		
+    	} catch(Exception e) {
+    		System.out.println(e);
+    	}
+    	return rs;
+    }
+
 }
