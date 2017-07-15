@@ -1,11 +1,12 @@
 package Server;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class Database {
 
     private Connection con;
+    private Statement stmt;
+    private ResultSet rs;
 
     /**
      * Laczy z baza danych po podaniu nazwy uzytkownika oraz hasla
@@ -24,6 +25,35 @@ public class Database {
         }
         return con;
     }
+    
+    /**
+     * Tworzy statement (nwm co to xd)
+     * @return
+     */
+    public Statement statement() {
+    	try {
+    		stmt = con.createStatement();
+    		return stmt;
+    		
+    	} catch(Exception e) {
+    		System.out.println(e);
+    	}
+    	return stmt;
+    }
 
+    /*
+     * Tworzy zapytanie np.
+     * select * from teacher
+     */
+    public ResultSet rs(String query) {
+    	try {
+    		rs = stmt.executeQuery(query);
+    		return rs;
+    		
+    	} catch(Exception e) {
+    		System.out.println(e);
+    	}
+    	return rs;
+    }
 
 }
