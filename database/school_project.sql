@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lip 2017, 13:49
--- Wersja serwera: 10.1.19-MariaDB
--- Wersja PHP: 5.6.28
+-- Czas generowania: 15 Lip 2017, 22:01
+-- Wersja serwera: 10.1.21-MariaDB
+-- Wersja PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,16 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `drugitest`
---
-
-CREATE TABLE `drugitest` (
-  `cos` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `student`
 --
 
@@ -46,14 +36,13 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `test`
+-- Struktura tabeli dla tabeli `teacher`
 --
 
-CREATE TABLE `test` (
-  `test` int(123) NOT NULL,
-  `test2` int(123) NOT NULL,
-  `test3` int(123) NOT NULL,
-  `test4` int(123) NOT NULL
+CREATE TABLE `teacher` (
+  `ID` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -67,6 +56,12 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -74,6 +69,11 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT dla tabeli `student`
 --
 ALTER TABLE `student`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `teacher`
+--
+ALTER TABLE `teacher`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
