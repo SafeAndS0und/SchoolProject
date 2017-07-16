@@ -22,5 +22,6 @@ public class Main extends Application {
         launch(args);
         
         Database db = new Database();
+        db.connect("root", "");
     }
 }
