@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 public class RegisterScreenController {
 	
 	MainScreenController mainScreenController;
+	Database db;
 	
 	public void setMainController(MainScreenController mainScreenController) {
 		this.mainScreenController = mainScreenController;
@@ -51,7 +52,7 @@ public class RegisterScreenController {
 
     @FXML
     void register() {
-
+    	db.addTeacher(usernameField.getText(), passwordField.getText(), password2Field.getText());
     }
 
 }

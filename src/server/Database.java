@@ -138,7 +138,6 @@ public class Database {
 				}
 				else {
 					System.out.println("Niepoprawny username lub haslo");
-					zalogowano = false;
 				}
 			}
 			
