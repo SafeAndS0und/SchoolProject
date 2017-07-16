@@ -78,8 +78,23 @@ public class Database {
 		
 		String query = "SELECT teacher.username, teacher.password FROM teacher";
  		resultSet(query);
-		
+
 		try {
+			if(!rs.next()&&password.equals(password2)){
+				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
+				try{
+					prepstmt = con.prepareStatement(query);
+					prepstmt.setString(1,username);
+					prepstmt.setString(2,password);
+					prepstmt.execute();
+
+				}catch (Exception e ){
+					System.out.println(e);
+				}
+				System.out.println("Dodano nowego nauczyciela do bazy");
+			}else{
+				resultSet(query);
+			}
     		while(rs.next()) {
     			if(username.equals(rs.getObject("username"))) {
     				System.out.println("Username jest zajety");

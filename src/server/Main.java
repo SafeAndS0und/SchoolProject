@@ -24,17 +24,18 @@ public class Main extends Application {
 
     public static void main(String[] args) {
     	
-    	Database db = new Database();
-        db.connect();
+    	server.Database db = new server.Database();
+        db.addTeacher("s","xdd","xdd");
     	
-        launch(args);
+ //       launch(args);
 
-//        server.ConnectionWithStudent.Database db = new Database();
+//        server.ConnectionWithStudent.Database dbb = new Database();
 //        db.connect();
 //        db.transformQuestions(1);
 //        db.transformQuestions(2);
 //        Questions q = new Questions();
 //        System.out.println( db.questionsList.get(1));
+
 
     }
 }
