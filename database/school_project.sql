@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 15 Lip 2017, 23:33
+-- Czas generowania: 16 Lip 2017, 14:33
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 5.6.30
 
@@ -37,6 +37,14 @@ CREATE TABLE `questions` (
   `teacherID` int(11) NOT NULL,
   `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `questions`
+--
+
+INSERT INTO `questions` (`ID`, `question`, `answerA`, `answerB`, `answerC`, `answerD`, `correctAnswer`, `teacherID`, `category`) VALUES
+(1, 'kiedy wybuchla 2 wojna swiatowa?', '1567', '1924', '1914', '1939', 'D', 1, 'historia'),
+(2, 'Ile maksymalnie pamieci RAM przyjmuje system 32-bitowy?', '1', '2', '4', '8', 'C', 1, 'informatyka');
 
 -- --------------------------------------------------------
 
@@ -80,6 +88,13 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Zrzut danych tabeli `teacher`
+--
+
+INSERT INTO `teacher` (`ID`, `username`, `password`) VALUES
+(1, 'asd', 'asd');
+
+--
 -- Indeksy dla zrzutów tabel
 --
 
@@ -118,7 +133,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT dla tabeli `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT dla tabeli `results`
 --
@@ -128,12 +143,12 @@ ALTER TABLE `results`
 -- AUTO_INCREMENT dla tabeli `student`
 --
 ALTER TABLE `student`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

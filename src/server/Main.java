@@ -29,7 +29,7 @@ public class Main extends Application {
         db.connect();
         db.transformQuestions(2);
         Questions q = new Questions();
-        String toString = db.questionsList.get(0).toString();
-        System.out.println(toString);
+        System.out.println( db.questionsList.get(0).toString());
+
     }
 }

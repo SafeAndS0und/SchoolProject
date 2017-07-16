@@ -77,6 +77,6 @@ public class Questions {
 
     public String toString(){
         return question + "\n" + answerA + " " + answerB  + " " + answerC  + " " + answerD +
-                "\nCorrect: " + correctAnswer + " \nFrom category " + category + " \nteacherID: "+teacherID;
+                "\nCorrect: " + correctAnswer + " \nFrom category: " + category + " \nteacherID: "+teacherID;
     }
 }
