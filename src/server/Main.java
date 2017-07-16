@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import server.ConnectionWithStudent.*;
+import server.ConnectionWithStudent.Database;
 
 public class Main extends Application {
 
@@ -20,8 +22,9 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        
-        Database db = new Database();
-        db.connect("root", "");
+
+        server.ConnectionWithStudent.Database db = new Database();
+        db.connect();
+
     }
 }
