@@ -8,10 +8,12 @@ import javafx.stage.Stage;
 import server.ConnectionWithStudent.*;
 import server.ConnectionWithStudent.Database;
 
+import javax.xml.crypto.Data;
+
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("MainScreen.fxml"));
         Pane pane = loader.load();
         Scene scene = new Scene(pane);
@@ -21,10 +23,13 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        //       launch(args);
 
         server.ConnectionWithStudent.Database db = new Database();
         db.connect();
-
+        db.transformQuestions(2);
+        Questions q = new Questions();
+        String toString = db.questionsList.get(0).toString();
+        System.out.println(toString);
     }
 }

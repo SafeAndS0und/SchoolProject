@@ -17,7 +17,6 @@ public class Database {
     public Connection connect(String user, String password) {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school_project", user, password);
-            System.out.println("Connected to databse");
             return con;
 
         } catch (Exception e) {
@@ -28,10 +27,10 @@ public class Database {
     
     /**
      * Dodaje nauczyciela
-     * @param name
+     * @param username
      * @param password
      */
-    
+
 	public void addTeacher(String username, String password) {
 		String query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
 
