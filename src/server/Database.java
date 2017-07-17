@@ -14,6 +14,7 @@ public class Database {
     private PreparedStatement prepstmt;
     private ResultSet rs;
     
+    int teacherID;
     boolean zalogowano = false;
     
 
@@ -72,57 +73,57 @@ public class Database {
      * @param password
      */
 
-	public void addTeacher(String username, String password, String password2) {
-		connect("root", "");
-		statement();
-		
-		String query = "SELECT teacher.username, teacher.password FROM teacher";
- 		resultSet(query);
-
-		try {
-			if(!rs.next()&&password.equals(password2)){
-				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
-				try{
-					prepstmt = con.prepareStatement(query);
-					prepstmt.setString(1,username);
-					prepstmt.setString(2,password);
-					prepstmt.execute();
-
-				}catch (Exception e ){
-					System.out.println(e);
-				}
-				System.out.println("Dodano nowego nauczyciela do bazy");
-			}else{
-				resultSet(query);
-			}
-    		while(rs.next()) {
-    			if(username.equals(rs.getObject("username"))) {
-    				System.out.println("Username jest zajety");
-    				break;
-    			}
-    			else if(!password.equals(password2)) {
-    				System.out.println("Hasla nie sa takie same");
-    				break;
-    			}
-    			else if(rs.isLast()) {
-    				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
-    				try{
-    		            prepstmt = con.prepareStatement(query);
-    		            prepstmt.setString(1,username);
-    		            prepstmt.setString(2,password);
-    		            prepstmt.execute();
-
-    		        }catch (Exception e ){
-    		            System.out.println(e);
-    		        }
-    				System.out.println("Dodano nowego nauczyciela do bazy");
-    				break;
-    			}
-    		}
-    		
-    	} catch(Exception e) {
-    		System.out.println(e);
-    	}
+	public void addTeacher() {
+//		connect("root", "");
+//		statement();
+//		
+//		String query = "SELECT teacher.username, teacher.password FROM teacher";
+// 		resultSet(query);
+//
+//		try {
+//			if(!rs.next()&&password.equals(password2)){
+//				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
+//				try{
+//					prepstmt = con.prepareStatement(query);
+//					prepstmt.setString(1,username);
+//					prepstmt.setString(2,password);
+//					prepstmt.execute();
+//
+//				}catch (Exception e ){
+//					System.out.println(e);
+//				}
+//				System.out.println("Dodano nowego nauczyciela do bazy");
+//			}else{
+//				resultSet(query);
+//			}
+//    		while(rs.next()) {
+//    			if(username.equals(rs.getObject("username"))) {
+//    				System.out.println("Username jest zajety");
+//    				break;
+//    			}
+//    			else if(!password.equals(password2)) {
+//    				System.out.println("Hasla nie sa takie same");
+//    				break;
+//    			}
+//    			else if(rs.isLast()) {
+//    				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
+//    				try{
+//    		            prepstmt = con.prepareStatement(query);
+//    		            prepstmt.setString(1,username);
+//    		            prepstmt.setString(2,password);
+//    		            prepstmt.execute();
+//
+//    		        }catch (Exception e ){
+//    		            System.out.println(e);
+//    		        }
+//    				System.out.println("Dodano nowego nauczyciela do bazy");
+//    				break;
+//    			}
+//    		}
+//    		
+//    	} catch(Exception e) {
+//    		System.out.println(e);
+//    	}
     }
 	
 	/**
@@ -133,6 +134,7 @@ public class Database {
 	 */
 	
 	public void signInTeacher(String username, String password) {
+		zalogowano = false;
 		//laczenie z SQL i tworzenie statement
 		connect("root", "");
 		statement();
@@ -148,6 +150,7 @@ public class Database {
 				if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
 					System.out.println("Zalogowano");
 					zalogowano = true;
+					getID(username, password);
 					break;
 					
 				}
@@ -159,6 +162,24 @@ public class Database {
 		} catch(Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	public void getID(String username, String password) {
+		connect("root", "");
+		statement();
+		
+		String query = "SELECT * FROM teacher WHERE username = \"" + username + "\" "
+				+ "AND password = \"" + password + "\"";
+        resultSet(query);
+        try {
+        	while(rs.next()) {
+        		teacherID = rs.getInt("ID");
+        		System.out.println("ID nauczyciela : " + teacherID);
+        	}
+        }catch(Exception e) {
+        	System.out.println(e);
+        }
+		System.out.println(query);
 	}
 
 }

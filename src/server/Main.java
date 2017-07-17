@@ -23,11 +23,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-    	
-    	server.Database db = new server.Database();
-        db.addTeacher("s","xdd","xdd");
-    	
- //       launch(args);
+    	launch(args);
 
 //        server.ConnectionWithStudent.Database dbb = new Database();
 //        db.connect();
