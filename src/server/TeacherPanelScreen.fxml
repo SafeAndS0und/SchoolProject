@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="server.TeacherPanelScreenController">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="149.0" text="Rozpocznij kartkówkę" />
+      <Button layoutX="14.0" layoutY="67.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="149.0" text="Dodaj pytanie" />
+      <Button layoutX="14.0" layoutY="122.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="149.0" text="Wyswietl pytania" />
+      <Button layoutX="14.0" layoutY="177.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="149.0" text="Opcje" />
+   </children>
 </AnchorPane>

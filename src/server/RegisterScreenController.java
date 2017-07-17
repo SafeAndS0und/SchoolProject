@@ -9,9 +9,9 @@ import java.sql.Statement;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class RegisterScreenController {
@@ -37,16 +37,15 @@ public class RegisterScreenController {
     private PasswordField password2Field;
 
     @FXML
-    private ImageView cube1;
-
-    @FXML
-    private ImageView cube2;
-
-    @FXML
-    private ImageView cube3;
+    public Label registerInfo;
+    
+    public void initialize() {
+    	registerInfo.setText("");
+    }
 
     @FXML
     void back() {
+    	//Laduje pane
     	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginScreen.fxml"));
     	Pane pane = null;
     	try {
@@ -61,16 +60,20 @@ public class RegisterScreenController {
 
     @FXML
     void register() {
+    	//Sprawdza czy pola sa puste
     	if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || password2Field.getText().isEmpty()) {
-    		System.out.println("Wypelnij wszystkie pola");
+    		registerInfo.setText("Wypelnij wszystkie pola");
     	} else {
-
+    		
+    	//laczenie z baza i ladowania zapytania	
 		try {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school_project", "root", "");
 	    	stmt = con.createStatement();
 	    	
 	    	String query = "SELECT teacher.username, teacher.password FROM teacher";
 	    	rs = stmt.executeQuery(query);
+	    	
+	    	//Dodaje nauczyciela gdy tabela 'teacher' jest pusta
 			if(!rs.next() && passwordField.getText().equals(passwordField.getText())){
 				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
 				try{
@@ -86,13 +89,14 @@ public class RegisterScreenController {
 			}else{
 				rs = stmt.executeQuery(query);
 			}
+			//petla sprawdzajaca czy nazwa uzytkownika jest zajeta i hasla identyczne
     		while(rs.next()) {
-    			if(usernameField.getText().equals(rs.getObject("username"))) {
-    				System.out.println("Username jest zajety");
+    			if(usernameField.getText().equals(rs.getString("username"))) {
+    				registerInfo.setText("Username jest zajety");
     				break;
     			}
     			else if(!passwordField.getText().equals(password2Field.getText())) {
-    				System.out.println("Hasla nie sa takie same");
+    				registerInfo.setText("Hasla nie sa takie same");
     				break;
     			}
     			else if(rs.isLast()) {
@@ -106,7 +110,7 @@ public class RegisterScreenController {
     		        }catch (Exception e ){
     		            System.out.println(e);
     		        }
-    				System.out.println("Dodano nowego nauczyciela do bazy");
+    				registerInfo.setText("Pomyslnie dodano " + usernameField.getText() + " do bazy");
     				break;
     			}
     		}

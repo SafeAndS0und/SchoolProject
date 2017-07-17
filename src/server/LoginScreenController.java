@@ -39,24 +39,27 @@ public class LoginScreenController {
     private ImageView cube2;
 
     @FXML
-    private TextArea infoArea;
+    public TextArea infoArea;
     
     @FXML
-    private Label info;
+    public Label info;
+    
+    public void initialize() {
+    	info.setText("");
+    }
 
     @FXML
     void login() {
-    	String loginText = loginField.getText();
-    	String passwordText = passwordField.getText();
     	
-    	if(loginText.isEmpty()) {
-    		System.out.println("Wypelnij pole z loginem");
-    	}
-    	else if(passwordText.isEmpty()) {
-    		System.out.println("Wypelnij pole z haslem");
+    	if(loginField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+    		info.setVisible(true);
+    		info.setText("Wypelnij wszystkie pola");
     	}
     	else {
     		db.signInTeacher(loginField.getText(), passwordField.getText());
+    		//Pobiera stringa z informacja o logwaniu
+    		info.setText(db.loginInfo);
+    		
     		if(db.zalogowano == true) {
     			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("TeacherPanelScreen.fxml"));
 				Pane pane = null;

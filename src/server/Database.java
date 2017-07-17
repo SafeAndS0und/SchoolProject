@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 public class Database {
 	
 	MainScreenController mainScreenController;
+	LoginScreenController loginScreenController;
 
     private Connection con;
     private Statement stmt;
@@ -16,6 +17,7 @@ public class Database {
     
     int teacherID;
     boolean zalogowano = false;
+    String loginInfo;
     
 
     /**
@@ -148,14 +150,20 @@ public class Database {
 			//petla sprawdzajaca czy istnieje podany username i haslo
 			while(rs.next()) {
 				if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
-					System.out.println("Zalogowano");
+					loginInfo = "Zalogowano";
 					zalogowano = true;
 					getID(username, password);
 					break;
 					
 				}
+				else if(username.equals(rs.getString("username"))) {
+					if(!password.equals(rs.getString("password"))) {
+						loginInfo = "Niepoprawne haslo";
+						break;
+					}
+				}
 				else {
-					System.out.println("Niepoprawny username lub haslo");
+					loginInfo = "Niepoprawny username lub haslo";
 				}
 			}
 			

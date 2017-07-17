@@ -4,35 +4,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="server.RegisterScreenController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.RegisterScreenController">
    <children>
-      <TextField fx:id="usernameField" layoutX="31.0" layoutY="69.0" prefHeight="50.0" prefWidth="265.0">
+      <TextField fx:id="usernameField" layoutX="232.0" layoutY="69.0" prefHeight="50.0" prefWidth="265.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="passwordField" layoutX="31.0" layoutY="153.0" prefHeight="50.0" prefWidth="265.0">
+      <PasswordField fx:id="passwordField" layoutX="232.0" layoutY="153.0" prefHeight="50.0" prefWidth="265.0">
          <font>
             <Font size="20.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="password2Field" layoutX="31.0" layoutY="236.0" prefHeight="50.0" prefWidth="265.0">
+      <PasswordField fx:id="password2Field" layoutX="232.0" layoutY="236.0" prefHeight="50.0" prefWidth="265.0">
          <font>
             <Font size="20.0" />
          </font>
       </PasswordField>
-      <Button layoutX="171.0" layoutY="315.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="125.0" text="Zarejestruj" />
-      <Label layoutX="31.0" layoutY="52.0" text="Nazwa użytkownika" />
-      <Label layoutX="31.0" layoutY="136.0" text="Hasło" />
-      <Label layoutX="31.0" layoutY="222.0" text="Powtórz hasło" />
-      <Button layoutX="31.0" layoutY="315.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="125.0" text="Wróć" />
-      <ImageView fx:id="cube1" fitHeight="40.0" fitWidth="40.0" layoutX="324.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="cube2" fitHeight="40.0" fitWidth="40.0" layoutX="324.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="cube3" fitHeight="40.0" fitWidth="40.0" layoutX="324.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="372.0" layoutY="315.0" mnemonicParsing="false" onAction="#register" prefHeight="40.0" prefWidth="125.0" text="Zarejestruj" />
+      <Label layoutX="234.0" layoutY="52.0" text="Nazwa użytkownika" />
+      <Label layoutX="234.0" layoutY="136.0" text="Hasło" />
+      <Label layoutX="234.0" layoutY="219.0" text="Powtórz hasło" />
+      <Button layoutX="232.0" layoutY="315.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="125.0" text="Wróć" />
+      <StackPane layoutX="71.0" layoutY="373.0" prefHeight="30.0" prefWidth="587.0">
+         <children>
+            <Label fx:id="registerInfo" text="Label" textFill="RED">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
