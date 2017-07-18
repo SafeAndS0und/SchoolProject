@@ -25,7 +25,7 @@ public class Main extends Application {
     public static void main(String[] args) {
     	launch(args);
 
-//        server.ConnectionWithStudent.Database dbb = new Database();
+//        server.ConnectionWithStudent.Database db = new Database();
 //        db.connect();
 //        db.transformQuestions(1);
 //        db.transformQuestions(2);
