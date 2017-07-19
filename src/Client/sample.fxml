@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
+   <children>
+      <Button layoutX="191.0" layoutY="413.0" mnemonicParsing="false" onAction="#readQuestion" text="Question!" />
+      <Label fx:id="question" layoutX="43.0" layoutY="42.0" prefHeight="73.0" prefWidth="255.0" text="Question">
+         <font>
+            <Font size="7.0" />
+         </font>
+      </Label>
+      <Label fx:id="a" layoutX="47.0" layoutY="127.0" text="Label" />
+      <Label fx:id="b" layoutX="118.0" layoutY="127.0" text="Label" />
+      <Label fx:id="c" layoutX="189.0" layoutY="127.0" text="Label" />
+      <Label fx:id="d" layoutX="254.0" layoutY="127.0" text="Label" />
+      <Label fx:id="category" layoutX="217.0" layoutY="201.0" text="Label" />
+   </children>
+</Pane>
