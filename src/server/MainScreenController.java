@@ -12,6 +12,8 @@ public class MainScreenController {
     @FXML
     private StackPane mainScreen;
     
+    int teacherID;
+    
     public void initialize() {
     	loginScreen();
     }

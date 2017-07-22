@@ -68,65 +68,6 @@ public class Database {
     	}
     	return rs;
     }
-    
-    /**
-     * Dodaje nauczyciela po podaniu nazwy uzytkownika oraz hasla
-     * @param username
-     * @param password
-     */
-
-	public void addTeacher() {
-//		connect("root", "");
-//		statement();
-//		
-//		String query = "SELECT teacher.username, teacher.password FROM teacher";
-// 		resultSet(query);
-//
-//		try {
-//			if(!rs.next()&&password.equals(password2)){
-//				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
-//				try{
-//					prepstmt = con.prepareStatement(query);
-//					prepstmt.setString(1,username);
-//					prepstmt.setString(2,password);
-//					prepstmt.execute();
-//
-//				}catch (Exception e ){
-//					System.out.println(e);
-//				}
-//				System.out.println("Dodano nowego nauczyciela do bazy");
-//			}else{
-//				resultSet(query);
-//			}
-//    		while(rs.next()) {
-//    			if(username.equals(rs.getObject("username"))) {
-//    				System.out.println("Username jest zajety");
-//    				break;
-//    			}
-//    			else if(!password.equals(password2)) {
-//    				System.out.println("Hasla nie sa takie same");
-//    				break;
-//    			}
-//    			else if(rs.isLast()) {
-//    				query = "INSERT INTO teacher (username, password)" + "VALUES (?,?)";
-//    				try{
-//    		            prepstmt = con.prepareStatement(query);
-//    		            prepstmt.setString(1,username);
-//    		            prepstmt.setString(2,password);
-//    		            prepstmt.execute();
-//
-//    		        }catch (Exception e ){
-//    		            System.out.println(e);
-//    		        }
-//    				System.out.println("Dodano nowego nauczyciela do bazy");
-//    				break;
-//    			}
-//    		}
-//    		
-//    	} catch(Exception e) {
-//    		System.out.println(e);
-//    	}
-    }
 	
 	/**
 	 * Sprawdza czy nauczyciel znajduje sie w DB po podaniu username oraz hasla
@@ -183,6 +124,7 @@ public class Database {
         	while(rs.next()) {
         		teacherID = rs.getInt("ID");
         		System.out.println("ID nauczyciela : " + teacherID);
+        		break;
         	}
         }catch(Exception e) {
         	System.out.println(e);

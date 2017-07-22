@@ -71,6 +71,7 @@ public class LoginScreenController {
 				TeacherPanelScreenController teacherPanelScreenController = loader.getController();
 				teacherPanelScreenController.setMainController(mainScreenController);
 				mainScreenController.setScene(pane);
+				mainScreenController.teacherID = db.teacherID;
     		}
     	}
     }
