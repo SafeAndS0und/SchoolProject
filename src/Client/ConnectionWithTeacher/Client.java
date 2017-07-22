@@ -37,6 +37,7 @@ public class Client {
                 q.setAnswerC(dataInputStream.readUTF());
                 q.setAnswerD(dataInputStream.readUTF());
                 q.setCategory(dataInputStream.readUTF());
+                q.setCorrectAnswer(dataInputStream.readUTF());
                 questionsList.add(q);
 
             }

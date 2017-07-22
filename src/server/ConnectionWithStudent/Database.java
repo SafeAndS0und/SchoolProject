@@ -12,6 +12,7 @@ public class Database {
     public ArrayList<Questions> questionsList = new ArrayList<>();
 
 
+
     public void connect(){
       con = db.connect("root","");
     }
@@ -49,16 +50,15 @@ public class Database {
                 q.setCategory(category);
 
                 questionsList.add(q);
+
             }
 
 
         }catch (Exception e){
             System.out.println(e);
+
         }
 
     }
-
-
-
 
 }

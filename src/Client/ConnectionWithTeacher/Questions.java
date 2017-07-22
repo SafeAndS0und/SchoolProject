@@ -8,7 +8,15 @@ public class Questions {
     private String answerC;
     private String answerD;
     private String category;
+    private String correctAnswer;
 
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
 
     public void setQuestion(String question) {
         this.question = question;

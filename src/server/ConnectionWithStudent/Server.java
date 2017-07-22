@@ -42,8 +42,12 @@ public class Server {
 
             Database db = new Database();
             db.connect();
+
             db.transformQuestions(1);
             db.transformQuestions(2);
+            db.transformQuestions(3);
+            db.transformQuestions(4);
+            db.transformQuestions(5);
 
 
             OutputStream out = clientSocket.getOutputStream();
@@ -56,6 +60,7 @@ public class Server {
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getAnswerC());
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getAnswerD());
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getCategory());
+                dataOutputStream.writeUTF(db.questionsList.get(counter).getCorrectAnswer());
                 counter++;
 
             }
@@ -71,8 +76,11 @@ public class Server {
         Server s = new Server();
         s.startServer();
 
-        s.waitForConnection();
-        s.sendToClient();
+        while (true) {
+
+            s.waitForConnection();
+            s.sendToClient();
+        }
 
 
     }
