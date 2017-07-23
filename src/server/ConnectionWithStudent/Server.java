@@ -48,6 +48,8 @@ public class Server {
             db.transformQuestions(3);
             db.transformQuestions(4);
             db.transformQuestions(5);
+            db.transformQuestions(6);
+            db.transformQuestions(7);
 
 
             OutputStream out = clientSocket.getOutputStream();

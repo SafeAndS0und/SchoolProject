@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/SchoolProject_jar</output-path>
     <root id="archive" name="SchoolProject.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$USER_HOME$/Desktop/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="SchoolProject" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar" path-in-jar="/" />
