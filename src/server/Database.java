@@ -15,7 +15,7 @@ public class Database {
     private PreparedStatement prepstmt;
     private ResultSet rs;
     
-    int teacherID;
+    public int teacherID;
     boolean zalogowano = false;
     String loginInfo;
     
@@ -124,6 +124,7 @@ public class Database {
         	while(rs.next()) {
         		teacherID = rs.getInt("ID");
         		System.out.println("ID nauczyciela : " + teacherID);
+//        		mainScreenController.teacherID = teacherID;
         		break;
         	}
         }catch(Exception e) {

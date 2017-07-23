@@ -12,6 +12,7 @@ public class LoginScreenController {
 	
 	MainScreenController mainScreenController;
 	Database db = new Database();
+	Main main = new Main();
 	
 	public void setMainController(MainScreenController mainScreenController) {
 		this.mainScreenController = mainScreenController;
@@ -71,6 +72,7 @@ public class LoginScreenController {
 				TeacherPanelScreenController teacherPanelScreenController = loader.getController();
 				teacherPanelScreenController.setMainController(mainScreenController);
 				mainScreenController.setScene(pane);
+				main.id = db.teacherID;
 				mainScreenController.teacherID = db.teacherID;
     		}
     	}
