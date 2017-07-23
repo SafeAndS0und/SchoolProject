@@ -72,15 +72,18 @@ public class Server {
     }
 
     public static void serverStart() {
-
         Server s = new Server();
         s.startServer();
 
-        while (true) {
-
-            s.waitForConnection();
-            s.sendToClient();
-        }
+        //Uses Lambda to create new Thread, I guess.
+        new Thread(() -> {
+            while (true) {
+                s.waitForConnection();
+                s.sendToClient();
+            }
+        }) {{
+            start();
+        }};
 
 
     }

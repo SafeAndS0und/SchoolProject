@@ -8,8 +8,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
    <children>
-      <Button fx:id="next" layoutX="191.0" layoutY="413.0" mnemonicParsing="false" onAction="#readQuestion" text="Question!" />
-      <Label fx:id="question" layoutX="34.0" layoutY="26.0" prefHeight="73.0" prefWidth="255.0" text="Question">
+      <Button fx:id="next" layoutX="191.0" layoutY="413.0" mnemonicParsing="false" onAction="#readQuestion" text="Start" />
+      <Label fx:id="question" layoutX="34.0" layoutY="26.0" prefHeight="73.0" prefWidth="292.0" text="Question">
          <font>
             <Font size="9.0" />
          </font>
@@ -24,5 +24,7 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <TextField fx:id="imie" layoutX="40.0" layoutY="221.0" promptText="imie" />
+      <TextField fx:id="adresIP" layoutX="40.0" layoutY="269.0" promptText="adres IP serwera" />
    </children>
 </Pane>

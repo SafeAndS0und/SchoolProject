@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,8 +20,11 @@ public class Controller implements Initializable {
     public RadioButton d;
     public Label category;
     public Button next;
-    public boolean ifGood;
     public Label ifCorrect;
+    public TextField imie;
+    public TextField adresIP;
+
+    public boolean ifGood;
     int counter = 0;
     Client client = new Client();
 
@@ -36,12 +40,13 @@ public class Controller implements Initializable {
 
     }
 
-    public boolean readQuestion() {
-
+    public void readQuestion() {
         if (counter == 0) {
             client.connectToServer("127.0.0.1");
             client.getData();
         }
+        imie.setVisible(false);
+        adresIP.setVisible(false);
 
         question.setText(client.questionsList.get(counter).getQuestion());
         a.setText(client.questionsList.get(counter).getAnswerA());
@@ -59,45 +64,41 @@ public class Controller implements Initializable {
 
         try {
             if (counter > 0) {
-                String correct = client.questionsList.get(counter-1).getCorrectAnswer();
+                String correct = client.questionsList.get(counter - 1).getCorrectAnswer();
                 ifCorrect.setVisible(true);
                 if (a.isSelected() && correct.equals("A")) {
                     ifCorrect.setText("Correct!");
                     ifGood = true;
                     counter++;
-                    return ifGood;
                 }
                 if (b.isSelected() && correct.equals("B")) {
                     ifCorrect.setText("Correct!");
                     ifGood = true;
                     counter++;
-                    return ifGood;
                 }
                 if (c.isSelected() && correct.equals("C")) {
                     ifCorrect.setText("Correct!");
                     ifGood = true;
                     counter++;
-                    return ifGood;
                 }
                 if (d.isSelected() && correct.equals("D")) {
                     ifCorrect.setText("Correct!");
                     ifGood = true;
                     counter++;
-                    return ifGood;
                 } else {
                     ifCorrect.setText("Wrong!");
                     ifGood = false;
                     counter++;
 
-                    return ifGood;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         counter++;
-        ifGood = false;
-        return ifGood;
+
     }
 }
+
+
 
