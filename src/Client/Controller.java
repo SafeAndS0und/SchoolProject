@@ -41,7 +41,7 @@ public class Controller implements Initializable {
 
     public void readQuestion() {
         if (counter == 0) {
-            client.connectToServer("25.63.104.207");
+            client.connectToServer("127.0.0.1");
             client.getData();
         }
         imie.setVisible(false);
