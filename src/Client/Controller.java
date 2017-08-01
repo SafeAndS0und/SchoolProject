@@ -18,10 +18,10 @@ public class Controller implements Initializable {
     public Label category;
     public Button next;
     public Label ifCorrect;
-    public TextField imie;
-    public TextField adresIP;
     private int goodAnswers = 0;
     private int allQ = 0;
+
+
 
     public boolean ifGood;
     private int counter = 0;
@@ -40,12 +40,13 @@ public class Controller implements Initializable {
     }
 
     public void readQuestion() {
+        ClientState clientState = ClientState.getInstance();
+
         if (counter == 0) {
-            client.connectToServer("127.0.0.1");
+            client.connectToServer(clientState.getIpAddress());
             client.getData();
         }
-        imie.setVisible(false);
-        adresIP.setVisible(false);
+
         try {
             question.setText(client.questionsList.get(counter).getQuestion());
             a.setText(client.questionsList.get(counter).getAnswerA());
@@ -107,12 +108,11 @@ public class Controller implements Initializable {
             category.setVisible(false);
 
             ifCorrect.setText("Koniec pytań, ilosc poprawnych odpowiedzi to: " + goodAnswers + "/" + allQ);
+            client.sendData();
 
             e.printStackTrace();
         }
         counter++;
-
-
     }
 }
 

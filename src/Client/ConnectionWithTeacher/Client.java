@@ -1,13 +1,17 @@
 package Client.ConnectionWithTeacher;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import Client.ClientState;
 
 public class Client {
 
     private Socket clientSocket;
     public ArrayList<Questions> questionsList = new ArrayList<>();
+
 
     /**
      * Laczy sie z serwerem o podanym adresie na porcie 6666
@@ -15,6 +19,7 @@ public class Client {
      * @param ipAdress adres komputera, na ktorym jest serwer.
      */
     public void connectToServer(String ipAdress) {
+
         try {
             clientSocket = new Socket(ipAdress, 6666);
         } catch (Exception e) {
@@ -48,6 +53,22 @@ public class Client {
         } catch (Exception e) {
             eof = true;
         }
+    }
+
+    public void sendData(){
+        try{
+            ClientState clientState = ClientState.getInstance();
+
+            OutputStream out = clientSocket.getOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(out);
+
+            dataOutputStream.writeUTF(clientState.getUsername());
+            dataOutputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
