@@ -3,7 +3,9 @@ package Client;
 public class ClientState {
     String username;
     String ipAddress;
+    String goodAnswers;
     private static ClientState clientState;
+
 
     private ClientState(){
 
@@ -31,5 +33,13 @@ public class ClientState {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public String getGoodAnswers() {
+        return goodAnswers;
+    }
+
+    public void setGoodAnswers(String goodAnswers) {
+        this.goodAnswers = goodAnswers;
     }
 }

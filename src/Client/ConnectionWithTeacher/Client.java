@@ -5,12 +5,15 @@ import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+
 import Client.ClientState;
 
 public class Client {
 
     private Socket clientSocket;
     public ArrayList<Questions> questionsList = new ArrayList<>();
+    OutputStream out;
+    DataOutputStream dataOutputStream;
 
 
     /**
@@ -29,13 +32,16 @@ public class Client {
     }
 
     public void getData() {
-        boolean eof = false;
+        DataInputStream dataInputStream;
         try {
-            DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
+            dataInputStream = new DataInputStream(clientSocket.getInputStream());
 
-            while (!eof) {
-                Questions q = new Questions();
 
+            Questions q = new Questions();
+            while (true) {
+                if (dataInputStream.available() == 0) {
+                    return;
+                }
                 q.setQuestion(dataInputStream.readUTF());
                 q.setAnswerA(dataInputStream.readUTF());
                 q.setAnswerB(dataInputStream.readUTF());
@@ -45,32 +51,42 @@ public class Client {
                 q.setCorrectAnswer(dataInputStream.readUTF());
                 questionsList.add(q);
 
+                System.out.println(questionsList.get(0).getQuestion());
             }
-            System.out.println("Got the questions and answers.");
-            dataInputStream.close();
-
 
         } catch (Exception e) {
-            eof = true;
+
         }
     }
 
-    public void sendData(){
-        try{
+    public void sendInfo() {
+        try {
             ClientState clientState = ClientState.getInstance();
+            out = clientSocket.getOutputStream();
+            dataOutputStream = new DataOutputStream(out);
 
-            OutputStream out = clientSocket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(out);
+            //           dataOutputStream.writeUTF(clientState.getGoodAnswers());
+            //          dataOutputStream.writeUTF(clientState.getUsername());
 
-            dataOutputStream.writeUTF(clientState.getUsername());
-            dataOutputStream.close();
-        }catch (Exception e){
+            dataOutputStream.writeUTF("flower");
+
+            System.out.println("Sent");
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
     }
 
+    public static void main(String[] args) throws Exception {
+        Client c = new Client();
+        c.connectToServer("127.0.0.1");
+        c.getData();
+        c.sendInfo();
+
+
+    }
 
 
 }

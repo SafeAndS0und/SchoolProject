@@ -106,9 +106,10 @@ public class Controller implements Initializable {
             c.setVisible(false);
             d.setVisible(false);
             category.setVisible(false);
+            clientState.setGoodAnswers(goodAnswers + " dobrych odpowiedzi na " + allQ + "." );
 
             ifCorrect.setText("Koniec pytań, ilosc poprawnych odpowiedzi to: " + goodAnswers + "/" + allQ);
-            client.sendData();
+            client.sendInfo();
 
             e.printStackTrace();
         }

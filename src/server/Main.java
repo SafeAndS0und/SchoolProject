@@ -11,7 +11,7 @@ import server.ConnectionWithStudent.Database;
 import javax.xml.crypto.Data;
 
 public class Main extends Application {
-	
+
 	int id;
 
     @Override

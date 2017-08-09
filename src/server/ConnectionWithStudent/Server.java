@@ -1,6 +1,7 @@
 package server.ConnectionWithStudent;
 
 import javax.xml.crypto.Data;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -66,8 +67,23 @@ public class Server {
                 counter++;
 
             }
-            dataOutputStream.close();
 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void getFromClient() {
+        try {
+            System.out.println("Waiting for Information...");
+            while(true){
+                DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
+                String username = dataInputStream.readUTF();
+                System.out.println(username);
+            }
+            //           dataInputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -82,10 +98,21 @@ public class Server {
             while (true) {
                 s.waitForConnection();
                 s.sendToClient();
+                s.getFromClient();
             }
         }) {{
             start();
         }};
+
+
+    }
+
+    public static void main(String[] args) {
+        Server s = new Server();
+        s.startServer();
+        s.waitForConnection();
+        s.sendToClient();
+        s.getFromClient();
 
 
     }
