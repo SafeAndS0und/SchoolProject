@@ -26,7 +26,7 @@ public class TeacherPanelScreenController {
     @FXML
     //metoda rozpoczynajaca kartkowke
     public void startTheQuiz() {
-        System.out.println("Start the Quiz");
+        System.out.println("Create the Quiz");
     }
 
     //metoda otwierajaca okienko z opcja dodawania pytania
@@ -47,11 +47,6 @@ public class TeacherPanelScreenController {
     }
 
     @FXML
-    public void showQuestions() {
-        System.out.println("Show questions");
-    }
-
-    @FXML
     public void options() {
         System.out.println("Options");
     }
@@ -60,11 +55,20 @@ public class TeacherPanelScreenController {
     public void infoOfAccount() {
         System.out.println("Information about account");
     }
-
-    //uruchamia server
+    
     @FXML
-    public void server() {
-        server.ConnectionWithStudent.Server.serverStart();
+    public void signOut() {
+    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginScreen.fxml"));
+    	Pane pane = null;
+    	try {
+			pane = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	LoginScreenController loginScreenController = loader.getController();
+    	loginScreenController.setMainController(mainScreenController);
+    	mainScreenController.setScene(pane);
+    	
     }
 
     public void setScene(Pane pane) {
