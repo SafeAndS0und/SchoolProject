@@ -44,8 +44,8 @@ public class Controller implements Initializable {
 
         if (counter == 0) {
             client.connectToServer(clientState.getIpAddress());
-            client.getData();
         }
+        client.getData();
 
         try {
             question.setText(client.questionsList.get(counter).getQuestion());
@@ -111,7 +111,7 @@ public class Controller implements Initializable {
             ifCorrect.setText("Koniec pytań, ilosc poprawnych odpowiedzi to: " + goodAnswers + "/" + allQ);
             client.sendInfo();
 
-            e.printStackTrace();
+          //  e.printStackTrace();
         }
         counter++;
     }

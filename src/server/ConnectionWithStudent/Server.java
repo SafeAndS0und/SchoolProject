@@ -40,22 +40,28 @@ public class Server {
 
     public void sendToClient() {
         try {
+            //Connecting with the client
+            OutputStream out = clientSocket.getOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(out);
 
+            //Connecting with the database
             Database db = new Database();
             db.connect();
 
-            db.transformQuestions(1);
-            db.transformQuestions(2);
-            db.transformQuestions(3);
-            db.transformQuestions(4);
-            db.transformQuestions(5);
-            db.transformQuestions(6);
-            db.transformQuestions(7);
-
-
-            OutputStream out = clientSocket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(out);
+            //Checking how many questions there is
+            int howMany = db.checkHowMany();
             int counter = 0;
+            String howManyQ = Integer.toString(howMany);
+            dataOutputStream.writeUTF(howManyQ);
+
+            //Transforming questions to the Questions class objects
+            while(counter<=howMany){
+                db.transformQuestions(counter);
+                counter++;
+            }
+
+            counter=0;
+            //Sending questions to client
             while (counter < db.questionsList.size()) {
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getQuestion());
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getAnswerA());
@@ -65,8 +71,8 @@ public class Server {
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getCategory());
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getCorrectAnswer());
                 counter++;
-
             }
+
 
 
         } catch (Exception e) {
@@ -96,9 +102,9 @@ public class Server {
         //Uses Lambda to create new Thread, I guess.
         new Thread(() -> {
             while (true) {
-                s.waitForConnection();
-                s.sendToClient();
-                s.getFromClient();
+                s.waitForConnection(); //Waiting for client to connect
+                s.sendToClient(); //Sending questions to client
+                s.getFromClient(); //Waiting for information about client
             }
         }) {{
             start();

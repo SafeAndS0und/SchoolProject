@@ -12,24 +12,24 @@ public class Database {
     public ArrayList<Questions> questionsList = new ArrayList<>();
 
 
-
-    public void connect(){
-      con = db.connect("root","");
+    public void connect() {
+        con = db.connect("root", "");
     }
 
     /**
      * Wczytuje pytanie z bazy danych o podanym ID oraz przekształca je na obiekt klasy Questions
      */
-    public void transformQuestions(int questionID){
+    public void transformQuestions(int questionID) {
 
         String query = "SELECT * FROM questions, teacher WHERE questions.teacherID=teacher.ID AND questions.ID=?";
 
-        try{
+        try {
             prepstmt = con.prepareStatement(query);
-            prepstmt.setInt(1,questionID);
+            prepstmt.setInt(1, questionID);
             rs = prepstmt.executeQuery();
 
-            while(rs.next()){
+            Questions q = new Questions();
+            while (rs.next()) {
                 String question = rs.getString("question");
                 String aA = rs.getString("answerA");
                 String aB = rs.getString("answerB");
@@ -39,7 +39,7 @@ public class Database {
                 String category = rs.getString("category");
                 int teacherID = rs.getInt("teacherID");
 
-                Questions q = new Questions();
+
                 q.setQuestion(question);
                 q.setAnswerA(aA);
                 q.setAnswerB(aB);
@@ -51,14 +51,34 @@ public class Database {
 
                 questionsList.add(q);
 
+
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
 
         }
 
     }
+    public int checkHowMany(){
+        String query = "SELECT * FROM questions, teacher WHERE questions.teacherID=teacher.ID";
+        int number = 0;
+        try{
+            prepstmt = con.prepareStatement(query);
+            rs = prepstmt.executeQuery();
+
+            while(rs.next()){
+                number++;
+            }
+            return number;
+        }catch(Exception e){
+            e.printStackTrace();
+            return number;
+        }
+
+    }
+
+
 
 }

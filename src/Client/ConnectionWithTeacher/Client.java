@@ -3,6 +3,7 @@ package Client.ConnectionWithTeacher;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
+import java.io.PushbackInputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -31,31 +32,37 @@ public class Client {
 
     }
 
+    int counter = 0;
+    Questions q = new Questions();
+    int howManyQuestions = 0;
+
     public void getData() {
         DataInputStream dataInputStream;
         try {
             dataInputStream = new DataInputStream(clientSocket.getInputStream());
-
-
-            Questions q = new Questions();
-            while (true) {
-                if (dataInputStream.available() == 0) {
-                    return;
-                }
-                q.setQuestion(dataInputStream.readUTF());
-                q.setAnswerA(dataInputStream.readUTF());
-                q.setAnswerB(dataInputStream.readUTF());
-                q.setAnswerC(dataInputStream.readUTF());
-                q.setAnswerD(dataInputStream.readUTF());
-                q.setCategory(dataInputStream.readUTF());
-                q.setCorrectAnswer(dataInputStream.readUTF());
-                questionsList.add(q);
-
-                System.out.println(questionsList.get(0).getQuestion());
+            if (counter == 0) {
+                String howMany = dataInputStream.readUTF();
+                howManyQuestions = Integer.parseInt(howMany);
+                Questions.setHowMany(howManyQuestions);
             }
 
-        } catch (Exception e) {
+            if (counter >= howManyQuestions) {
+                return;
+            }
 
+            q.setQuestion(dataInputStream.readUTF());
+            q.setAnswerA(dataInputStream.readUTF());
+            q.setAnswerB(dataInputStream.readUTF());
+            q.setAnswerC(dataInputStream.readUTF());
+            q.setAnswerD(dataInputStream.readUTF());
+            q.setCategory(dataInputStream.readUTF());
+            q.setCorrectAnswer(dataInputStream.readUTF());
+            questionsList.add(q);
+            counter++;
+
+
+        } catch (Exception e) {
+            return;
         }
     }
 
@@ -65,10 +72,10 @@ public class Client {
             out = clientSocket.getOutputStream();
             dataOutputStream = new DataOutputStream(out);
 
-            //           dataOutputStream.writeUTF(clientState.getGoodAnswers());
-            //          dataOutputStream.writeUTF(clientState.getUsername());
+            dataOutputStream.writeUTF(clientState.getGoodAnswers());
+            dataOutputStream.writeUTF(clientState.getUsername());
 
-            dataOutputStream.writeUTF("flower");
+            //                dataOutputStream.writeUTF("flower");
 
             System.out.println("Sent");
 

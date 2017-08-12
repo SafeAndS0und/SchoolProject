@@ -10,6 +10,17 @@ public class Questions {
     private String category;
     private String correctAnswer;
 
+    private static int howMany;
+
+
+    public static int getHowMany() {
+        return howMany;
+    }
+
+    public static void setHowMany(int howMany) {
+       Questions.howMany = howMany;
+    }
+
     public String getCorrectAnswer() {
         return correctAnswer;
     }
