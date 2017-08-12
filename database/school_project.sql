@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Lip 2017, 14:33
+-- Czas generowania: 12 Sie 2017, 15:58
 -- Wersja serwera: 10.1.21-MariaDB
 -- Wersja PHP: 5.6.30
 
@@ -44,7 +44,13 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`ID`, `question`, `answerA`, `answerB`, `answerC`, `answerD`, `correctAnswer`, `teacherID`, `category`) VALUES
 (1, 'kiedy wybuchla 2 wojna swiatowa?', '1567', '1924', '1914', '1939', 'D', 1, 'historia'),
-(2, 'Ile maksymalnie pamieci RAM przyjmuje system 32-bitowy?', '1', '2', '4', '8', 'C', 1, 'informatyka');
+(2, 'Ile maksymalnie pamieci RAM przyjmuje system 32-bitowy?', '1', '2', '4', '8', 'C', 1, 'informatyka'),
+(3, 'Ile to jest 2^10?', '256', '512', '1000', '1024', 'D', 1, 'informatyka'),
+(4, 'Jak nazywa sie typ zmiennej, ktory przyjmuje liczby zmiennoprzecinkowe?', 'float', 'int', 'double', 'boolean', 'C', 1, 'programowanie'),
+(5, 'Jak nazywa sie typ zmiennej, ktory przyjmuje ciag znakow?', 'String', 'int', 'boolean', 'char', 'A', 1, ''),
+(6, 'Jak msz na imie?', 'Nikodem', 'Jakub', 'Maciej', 'Dawid', 'D', 1, 'imiona'),
+(7, 'ile to 2+2?', '1', '2', '3', '4', 'D', 1, 'matematyka'),
+(8, 'Z czego zrobione jest leczo?', 'kalafior', 'ziemniaki', 'papryka', 'makaron', 'C', 3, 'kuchnia');
 
 -- --------------------------------------------------------
 
@@ -92,7 +98,9 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`ID`, `username`, `password`) VALUES
-(1, 'asd', 'asd');
+(1, 'asd', 'qwe'),
+(2, 'qweqwe', 'qweqwe'),
+(3, 'kupa', 'dupa');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -133,7 +141,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT dla tabeli `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT dla tabeli `results`
 --
@@ -148,7 +156,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT dla tabeli `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
