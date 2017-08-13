@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.LoginScreenController">
+   <children>
+      <TextField fx:id="username" layoutX="86.0" layoutY="39.0" promptText="imię" />
+      <TextField fx:id="ipAddress" layoutX="86.0" layoutY="85.0" promptText="adres IP serwera" />
+      <Button fx:id="login" layoutX="183.0" layoutY="140.0" mnemonicParsing="false" onAction="#login" text="Zaloguj" />
+   </children>
+</Pane>
