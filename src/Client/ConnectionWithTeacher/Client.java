@@ -33,11 +33,12 @@ public class Client {
     }
 
     int counter = 0;
-    Questions q = new Questions();
+
     int howManyQuestions = 0;
 
     public void getData() {
         DataInputStream dataInputStream;
+        Questions q = new Questions();
         try {
             dataInputStream = new DataInputStream(clientSocket.getInputStream());
             if (counter == 0) {
@@ -72,8 +73,8 @@ public class Client {
             out = clientSocket.getOutputStream();
             dataOutputStream = new DataOutputStream(out);
 
-            dataOutputStream.writeUTF(clientState.getGoodAnswers());
             dataOutputStream.writeUTF(clientState.getUsername());
+            dataOutputStream.writeUTF(clientState.getGoodAnswers());
 
             //                dataOutputStream.writeUTF("flower");
 

@@ -15,6 +15,9 @@ public class LoginScreenController {
 
     public void changeScene(){
         try{
+            Stage stage2 = (Stage)login.getScene().getWindow();
+            stage2.close();
+
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root,340,500));
@@ -30,6 +33,7 @@ public class LoginScreenController {
             changeScene();
             ClientState.getInstance().setIpAddress(ipAddress.getText());
             ClientState.getInstance().setUsername(username.getText());
+
         }
     }
 

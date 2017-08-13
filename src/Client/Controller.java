@@ -29,7 +29,8 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        question.setVisible(false);
+        question.setVisible(true);
+        question.setText("Kliknij start i jeśli serwer aktualnie pracuję wczytają Ci się pytania do quizu!");
         a.setVisible(false);
         b.setVisible(false);
         c.setVisible(false);
@@ -69,36 +70,39 @@ public class Controller implements Initializable {
             d.setToggleGroup(group);
             allQ++;
             if (counter > 0) {
-                String correct = client.questionsList.get(counter - 1).getCorrectAnswer();
-                ifCorrect.setVisible(true);
+                String correct = client.questionsList.get(counter-1).getCorrectAnswer();
+                System.out.println(client.questionsList.get(0).getCorrectAnswer());
+                System.out.println(client.questionsList.get(1).getCorrectAnswer());
 
                 if (a.isSelected() && correct.equals("A")) {
-                    ifCorrect.setText("Dobrze!");
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
+                    next.setText("Następne pytanie");
                 } else if (b.isSelected() && correct.equals("B")) {
-                    ifCorrect.setText("Dobrze!");
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
+                    next.setText("Następne pytanie");
                 } else if (c.isSelected() && correct.equals("C")) {
-                    ifCorrect.setText("Dobrze!");
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
+                    next.setText("Następne pytanie");
                 } else if (d.isSelected() && correct.equals("D")) {
-                    ifCorrect.setText("Dobrze!");
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
+                    next.setText("Następne pytanie");
 
                 } else {
-                    ifCorrect.setText("Źle!");
+
                     ifGood = false;
+                    next.setText("Następne pytanie");
                 }
             }
         } catch (Exception e) {
+            ifCorrect.setVisible(true);
             goodAnswers++;
             question.setVisible(false);
             a.setVisible(false);
@@ -106,9 +110,10 @@ public class Controller implements Initializable {
             c.setVisible(false);
             d.setVisible(false);
             category.setVisible(false);
+            next.setVisible(false);
             clientState.setGoodAnswers(goodAnswers + " dobrych odpowiedzi na " + allQ + "." );
 
-            ifCorrect.setText("Koniec pytań, ilosc poprawnych odpowiedzi to: " + goodAnswers + "/" + allQ);
+            ifCorrect.setText("Koniec pytań, twoje imię oraz wyniki zostały wysłane do nauczyciela!");
             client.sendInfo();
 
           //  e.printStackTrace();

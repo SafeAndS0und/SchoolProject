@@ -1,16 +1,16 @@
 package server.ConnectionWithStudent;
 
-import javax.xml.crypto.Data;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Server {
 
     private java.net.ServerSocket serverSocket;
     private Socket clientSocket;
+    private String information;
+    private boolean isConnecting = false;
 
     /**
      * Stawia serwer na porcie 6666.
@@ -26,9 +26,9 @@ public class Server {
 
     public void waitForConnection() {
         try {
-            System.out.println("Waiting for client...");
-
+            isConnecting = true;
             clientSocket = serverSocket.accept();
+            isConnecting = false;
             System.out.println(clientSocket.getInetAddress().getHostAddress() + " connected.");
 
 
@@ -55,12 +55,12 @@ public class Server {
             dataOutputStream.writeUTF(howManyQ);
 
             //Transforming questions to the Questions class objects
-            while(counter<=howMany){
+            while (counter <= howMany) {
                 db.transformQuestions(counter);
                 counter++;
             }
 
-            counter=0;
+            counter = 0;
             //Sending questions to client
             while (counter < db.questionsList.size()) {
                 dataOutputStream.writeUTF(db.questionsList.get(counter).getQuestion());
@@ -74,7 +74,6 @@ public class Server {
             }
 
 
-
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -83,15 +82,15 @@ public class Server {
 
     public void getFromClient() {
         try {
-            System.out.println("Waiting for Information...");
-            while(true){
+            while (true) {
                 DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
-                String username = dataInputStream.readUTF();
-                System.out.println(username);
+                information = dataInputStream.readUTF();
+
+                System.out.println("Information: " + information);
+
             }
-            //           dataInputStream.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(clientSocket.getInetAddress().getHostAddress() + " disconnected.");
         }
     }
 
@@ -100,17 +99,37 @@ public class Server {
         s.startServer();
 
         //Uses Lambda to create new Thread, I guess.
+        int counter = 0;
         new Thread(() -> {
             while (true) {
-                s.waitForConnection(); //Waiting for client to connect
-                s.sendToClient(); //Sending questions to client
-                s.getFromClient(); //Waiting for information about client
+                if (!s.isConnecting) {
+                    new Thread(() -> {
+                        s.waitForConnection(); //Waiting for client to connect
+                        s.sendToClient(); //Sending questions to client
+                        s.getFromClient(); //Waiting for information about client
+
+                    }) {{
+                        start();
+                    }};
+                } else {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Thread.sleep(5);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
-        }) {{
-            start();
-        }};
+        }) {{start();}};
+    }
 
-
+    public String getInformation() {
+        return information;
     }
 
     public static void main(String[] args) {

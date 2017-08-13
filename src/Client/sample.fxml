@@ -9,9 +9,9 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
    <children>
       <Button fx:id="next" layoutX="104.0" layoutY="411.0" mnemonicParsing="false" onAction="#readQuestion" prefHeight="25.0" prefWidth="133.0" text="Start" />
-      <Label fx:id="question" layoutX="34.0" layoutY="26.0" prefHeight="73.0" prefWidth="292.0" text="Question" wrapText="true">
+      <Label fx:id="question" layoutX="24.0" layoutY="24.0" prefHeight="73.0" prefWidth="292.0" text="Question" wrapText="true">
          <font>
-            <Font name="Constantia" size="12.0" />
+            <Font name="Constantia" size="14.0" />
          </font>
       </Label>
       <Label fx:id="category" layoutX="244.0" layoutY="233.0" text="Label" />
@@ -19,7 +19,7 @@
       <RadioButton fx:id="b" layoutX="187.0" layoutY="127.0" mnemonicParsing="false" text="RadioButton" />
       <RadioButton fx:id="c" layoutX="40.0" layoutY="186.0" mnemonicParsing="false" text="RadioButton" />
       <RadioButton fx:id="d" layoutX="187.0" layoutY="186.0" mnemonicParsing="false" text="RadioButton" />
-      <Label fx:id="ifCorrect" layoutX="40.0" layoutY="316.0" prefHeight="73.0" prefWidth="278.0" text="Label" wrapText="true">
+      <Label fx:id="ifCorrect" layoutX="24.0" layoutY="291.0" prefHeight="73.0" prefWidth="278.0" text="Label" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
