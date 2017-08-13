@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import server.ConnectionWithStudent.Server;
@@ -26,7 +27,17 @@ public class TeacherPanelScreenController {
     @FXML
     //metoda rozpoczynajaca kartkowke
     public void startTheQuiz() {
-        System.out.println("Create the Quiz");
+    	FXMLLoader loader = new FXMLLoader(this.getClass().getResource("createQuiz.fxml"));
+    	Pane pane = null;
+    	try {
+    		pane = loader.load();
+    	}
+    	catch(IOException e) {
+    		e.printStackTrace();
+    	}
+    	CreateQuizController createQuizController = loader.getController();
+    	createQuizController.setMainController(mainScreenController);
+    	setScene(pane);
     }
 
     //metoda otwierajaca okienko z opcja dodawania pytania
