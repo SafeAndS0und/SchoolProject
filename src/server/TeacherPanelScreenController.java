@@ -28,6 +28,7 @@ public class TeacherPanelScreenController implements Initializable {
     public CheckBox usePrevious = new CheckBox();
     public Label zaladuj;
 
+
     public void setMainController(MainScreenController mainScreenController) {
         this.mainScreenController = mainScreenController;
     }
