@@ -76,6 +76,16 @@ public class Database {
             e.printStackTrace();
             return number;
         }
+    }
+    public void truncateTable(){
+        String query = "TRUNCATE TABLE questions";
+        try{
+            prepstmt = con.prepareStatement(query);
+            prepstmt.execute();
+            System.out.println("Truncated");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 

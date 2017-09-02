@@ -1,5 +1,7 @@
 package server.ConnectionWithStudent;
 
+import server.ResultsController;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
@@ -37,6 +39,9 @@ public class Server {
         }
 
     }
+
+    private int counter = 0;
+
 
     public void sendToClient() {
         try {
@@ -80,13 +85,16 @@ public class Server {
         }
     }
 
+   Results results = Results.getInstance();
     public void getFromClient() {
         try {
             while (true) {
                 DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
                 information = dataInputStream.readUTF();
-
-                System.out.println("Information: " + information);
+                results.setName(information);
+                results.setResult(information);
+                counter++;
+                results.setHowManyStudents(counter);
 
             }
         } catch (Exception e) {
@@ -125,7 +133,9 @@ public class Server {
                 }
 
             }
-        }) {{start();}};
+        }) {{
+            start();
+        }};
     }
 
     public String getInformation() {

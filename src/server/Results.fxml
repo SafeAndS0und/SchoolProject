@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ResultsController">
+   <children>
+      <Label layoutX="26.0" layoutY="29.0" prefHeight="25.0" prefWidth="486.0" text="Tutaj będą pojawiać się wyniki uczniów kiedy ukończą Quiz">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" layoutX="32.0" layoutY="79.0" prefHeight="17.0" prefWidth="123.0" />
+      <Label fx:id="result" layoutX="32.0" layoutY="105.0" prefHeight="17.0" prefWidth="241.0" />
+      <Button layoutX="539.0" layoutY="302.0" mnemonicParsing="false" onAction="#refresh" text="Odśwież" />
+   </children>
+</AnchorPane>

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.LoginScreenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.LoginScreenController">
    <children>
-      <TextField fx:id="username" layoutX="86.0" layoutY="39.0" promptText="imię" />
-      <TextField fx:id="ipAddress" layoutX="86.0" layoutY="85.0" promptText="adres IP serwera" />
-      <Button fx:id="login" layoutX="183.0" layoutY="140.0" mnemonicParsing="false" onAction="#login" text="Zaloguj" />
+      <TextField fx:id="username" layoutX="34.0" layoutY="75.0" promptText="imię" />
+      <TextField fx:id="ipAddress" layoutX="34.0" layoutY="120.0" promptText="adres IP serwera" />
+      <Button fx:id="login" layoutX="118.0" layoutY="181.0" mnemonicParsing="false" onAction="#login" text="Zaloguj" />
+      <Label layoutX="219.0" layoutY="37.0" prefHeight="156.0" prefWidth="149.0" text="W wyznaczonych miejscach wpisz swoje imię, które pokaże się nauczycielowi wraz z twoimi wynikami, oraz adres IP komputera nauczyciela." wrapText="true">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="31.0" prefHeight="25.0" prefWidth="149.0" text="Witaj uczniu! :) ">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

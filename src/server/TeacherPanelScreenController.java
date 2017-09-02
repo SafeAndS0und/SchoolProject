@@ -1,38 +1,54 @@
 package server;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import server.ConnectionWithStudent.Server;
+import javafx.stage.Stage;
+import server.ConnectionWithStudent.*;
+import server.ConnectionWithStudent.Database;
 
-public class TeacherPanelScreenController {
+public class TeacherPanelScreenController implements Initializable {
 
     @FXML
     private AnchorPane window;
 
     MainScreenController mainScreenController;
-    Database db = new Database();
+    server.ConnectionWithStudent.Database db = new Database();
+    public Label startText = new Label();
+    public CheckBox usePrevious = new CheckBox();
 
     public void setMainController(MainScreenController mainScreenController) {
         this.mainScreenController = mainScreenController;
     }
 
-    public void initialization() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        startText.setText("W tym oknie masz dostępne trzy możliwości:" +
+                "\n" +
+                "\nUtwórz Quiz - Pozwoli ci dodać nowe pytania, a na końcu postawić serwer, do którego będą mogli połączyć się uczniowie" +
+                "\n" +
+                "\nOpcje - Pozwala na dokonanie pewnych zmian" +
+                "\n" +
+                "\nWyniki - Po utworzeniu quizu i postawieniu serwera będą wyświetlać się tam wyniki uczniów");
+
     }
 
     @FXML
-    //metoda rozpoczynajaca kartkowke
     public void startTheQuiz() {
-        System.out.println("Start the Quiz");
-    }
-
-    //metoda otwierajaca okienko z opcja dodawania pytania
-    @FXML
-    public void addQuestion() {
-        System.out.println("Add Question");
+        if(!usePrevious.isSelected()){
+            db.connect();
+            db.truncateTable();
+        }
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("addQuestion.fxml"));
         Pane pane = null;
         try {
@@ -43,12 +59,6 @@ public class TeacherPanelScreenController {
         AddQuestionController addQuestionController = loader.getController();
         addQuestionController.setMainScreenController(mainScreenController);
         setScene(pane);
-        //INSERT INTO `questions` (`ID`, `question`, `answerA`, `answerB`, `answerC`, `answerD`, `correctAnswer`, `teacherID`, `category`) VALUES (NULL, 'test5', 'tak', 'nie', 'moze', 'nwm', 'A', '1', 'eee');
-    }
-
-    @FXML
-    public void showQuestions() {
-        System.out.println("Show questions");
     }
 
     @FXML
@@ -56,15 +66,17 @@ public class TeacherPanelScreenController {
         System.out.println("Options");
     }
 
-    @FXML
-    public void infoOfAccount() {
-        System.out.println("Information about account");
-    }
+    public void showResults(){
 
-    //uruchamia server
-    @FXML
-    public void server() {
-        server.ConnectionWithStudent.Server.serverStart();
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root,650,350));
+            stage.setTitle("Quiz");
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void setScene(Pane pane) {

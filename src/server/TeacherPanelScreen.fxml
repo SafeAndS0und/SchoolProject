@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="41.0" prefWidth="149.0" text="Rozpocznij kartkówkę" />
-      <Button layoutX="14.0" layoutY="67.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="41.0" prefWidth="149.0" text="Dodaj pytanie" />
-      <Button layoutX="14.0" layoutY="122.0" mnemonicParsing="false" onAction="#showQuestions" prefHeight="41.0" prefWidth="149.0" text="Wyswietl pytania" />
-      <Button layoutX="14.0" layoutY="177.0" mnemonicParsing="false" onAction="#options" prefHeight="41.0" prefWidth="149.0" text="Opcje" />
-      <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#infoOfAccount" prefHeight="41.0" prefWidth="149.0" text="Informacje o koncie" />
-      <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#server" prefHeight="41.0" prefWidth="149.0" text="Serverrrrrrr" />
-      <AnchorPane fx:id="window" layoutX="186.0" layoutY="14.0" prefHeight="480.0" prefWidth="500.0" />
+      <AnchorPane prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <AnchorPane fx:id="window" layoutX="192.0" layoutY="10.0" prefHeight="480.0" prefWidth="500.0">
+               <children>
+                  <Button layoutX="101.0" layoutY="85.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="41.0" prefWidth="149.0" text="Utwórz Quiz" />
+                  <Button layoutX="101.0" layoutY="268.0" mnemonicParsing="false" onAction="#options" prefHeight="41.0" prefWidth="149.0" text="Opcje" />
+                  <Button layoutX="101.0" layoutY="175.0" mnemonicParsing="false" onAction="#showResults" prefHeight="41.0" prefWidth="149.0" text="Wyniki" />
+                  <CheckBox fx:id="usePrevious" layoutX="279.0" layoutY="106.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="207.0" text="Skorzystaj z poprzedniego quizu">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+            <Label fx:id="startText" layoutX="14.0" layoutY="14.0" lineSpacing="1.0" prefHeight="402.0" prefWidth="178.0" text="Label" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</Pane>

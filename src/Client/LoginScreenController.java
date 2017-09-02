@@ -20,7 +20,7 @@ public class LoginScreenController {
 
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             Stage stage = new Stage();
-            stage.setScene(new Scene(root,340,500));
+            stage.setScene(new Scene(root,340,412));
             stage.setTitle("Quiz");
             stage.show();
         }catch(Exception e){
