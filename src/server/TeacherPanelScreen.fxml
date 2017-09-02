@@ -5,12 +5,10 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="41.0" prefWidth="149.0" text="Rozpocznij kartkówkę" />
-      <Button layoutX="14.0" layoutY="67.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="41.0" prefWidth="149.0" text="Dodaj pytanie" />
-      <Button layoutX="14.0" layoutY="122.0" mnemonicParsing="false" onAction="#showQuestions" prefHeight="41.0" prefWidth="149.0" text="Wyswietl pytania" />
-      <Button layoutX="14.0" layoutY="177.0" mnemonicParsing="false" onAction="#options" prefHeight="41.0" prefWidth="149.0" text="Opcje" />
-      <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#infoOfAccount" prefHeight="41.0" prefWidth="149.0" text="Informacje o koncie" />
-      <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#server" prefHeight="41.0" prefWidth="149.0" text="Serverrrrrrr" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="41.0" prefWidth="149.0" text="Stwórz quiz" />
+      <Button layoutX="14.0" layoutY="67.0" mnemonicParsing="false" onAction="#options" prefHeight="41.0" prefWidth="149.0" text="Opcje" />
+      <Button layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#infoOfAccount" prefHeight="41.0" prefWidth="149.0" text="Informacje o koncie" />
+      <Button layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#signOut" prefHeight="41.0" prefWidth="149.0" text="Wyloguj" />
       <AnchorPane fx:id="window" layoutX="186.0" layoutY="14.0" prefHeight="480.0" prefWidth="500.0" />
    </children>
 </AnchorPane>
