@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,6 +45,8 @@ public class AddQuestionController implements Initializable {
 	private Statement stmt;
 	private PreparedStatement prepstmt;
 	private ResultSet rs;
+	
+	@FXML
 	private AnchorPane window;
 
 	@FXML
@@ -75,6 +78,9 @@ public class AddQuestionController implements Initializable {
 
 	@FXML
 	private CheckBox checkBoxD;
+	
+	@FXML
+	private Button backk;
 
 	public Label wrong;
 
@@ -103,6 +109,12 @@ public class AddQuestionController implements Initializable {
 			selectedCheckBoxs++;
 			corrAnswer = "D";
 		}
+	}
+	
+	@FXML
+	void back() {
+		
+		window.getChildren().clear();
 	}
 
 	@FXML
@@ -145,15 +157,15 @@ public class AddQuestionController implements Initializable {
 		server.ConnectionWithStudent.Server.serverStart();
 		wrong.setText("Postawiono serwer z dodanymi pytaniami, przejdź teraz do zakładki 'Wyniki'!");
 
-		try{
-			Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));
-			Stage stage = new Stage();
-			stage.setScene(new Scene(root,650,350));
-			stage.setTitle("Quiz");
-			stage.show();
-		}catch (Exception e){
-			e.printStackTrace();
-		}
+//		try{
+//			Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));
+//			Stage stage = new Stage();
+//			stage.setScene(new Scene(root,650,350));
+//			stage.setTitle("Quiz");
+//			stage.show();
+//		}catch (Exception e){
+//			e.printStackTrace();
+//		}
 	}
 
 

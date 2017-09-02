@@ -1,5 +1,6 @@
 package server;
 
+import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import server.ConnectionWithStudent.Results;
@@ -12,6 +13,7 @@ public class ResultsController implements Initializable {
     public Label name = new Label();
     public Label result = new Label();
     Results results = Results.getInstance();
+    TeacherPanelScreenController tpsc = new TeacherPanelScreenController();
 
     public Label getName() {
         return name;

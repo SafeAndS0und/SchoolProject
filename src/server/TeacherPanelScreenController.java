@@ -26,6 +26,7 @@ public class TeacherPanelScreenController implements Initializable {
     server.ConnectionWithStudent.Database db = new Database();
     public Label startText = new Label();
     public CheckBox usePrevious = new CheckBox();
+    public Label zaladuj;
 
     public void setMainController(MainScreenController mainScreenController) {
         this.mainScreenController = mainScreenController;
@@ -33,13 +34,17 @@ public class TeacherPanelScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        startText.setText("W tym oknie masz dostÄ™pne trzy moÅ¼liwoÅ›ci:" +
-                "\n" +
-                "\nUtwÃ³rz Quiz - Pozwoli ci dodaÄ‡ nowe pytania, a na koÅ„cu postawiÄ‡ serwer, do ktÃ³rego bÄ™dÄ… mogli poÅ‚Ä…czyÄ‡ siÄ™ uczniowie" +
-                "\n" +
-                "\nOpcje - Pozwala na dokonanie pewnych zmian" +
-                "\n" +
-                "\nWyniki - Po utworzeniu quizu i postawieniu serwera bÄ™dÄ… wyÅ›wietlaÄ‡ siÄ™ tam wyniki uczniÃ³w");
+    	startText.setText("");
+//    	startText.setText("W tym oknie masz dostêpne trzy mo¿liwoœci:" +
+//                "\n" +
+//                "\nUtwórz Quiz - Pozwoli ci dodaæ nowe pytania, a na koñcu postawiæ serwer, do którego bêd¹ mogli po³¹czyæ siê uczniowie" +
+//                "\n" +
+//                "\nWyloguj - Wylogowuje Ciê" +
+//                "\n" +
+//                "\nWyniki - Po utworzeniu quizu i postawieniu serwera bêd¹ wyœwietlaæ siê tam wyniki uczniów");
+    	zaladuj.setText("Za³aduj poprzednie "
+    			+ "\n"
+    			+ " pytania");
 
     }
 
@@ -63,7 +68,16 @@ public class TeacherPanelScreenController implements Initializable {
 
     @FXML
     public void options() {
-        System.out.println("Options");
+    	try{
+            Parent root = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setTitle("Quiz");
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void showResults(){
@@ -72,11 +86,16 @@ public class TeacherPanelScreenController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root,650,350));
+            stage.setResizable(false);
             stage.setTitle("Quiz");
             stage.show();
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public void logout() {
+    	mainScreenController.loginScreen();
     }
 
     public void setScene(Pane pane) {

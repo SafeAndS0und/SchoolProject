@@ -48,8 +48,6 @@ public class LoginScreenController {
     public void initialize() {
     	info.setText("");
     }
-    
-    //a chuj kurwa
 
     @FXML
     void login() {
