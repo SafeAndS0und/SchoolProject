@@ -30,7 +30,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         question.setVisible(true);
-        question.setText("Kliknij start i jeśli serwer aktualnie pracuję wczytają Ci się pytania do quizu!");
         a.setVisible(false);
         b.setVisible(false);
         c.setVisible(false);
@@ -103,7 +102,9 @@ public class Controller implements Initializable {
             }
         } catch (Exception e) {
             ifCorrect.setVisible(true);
-            goodAnswers++;
+            if(counter>0&&ifGood){
+                goodAnswers++;
+            }
             question.setVisible(false);
             a.setVisible(false);
             b.setVisible(false);

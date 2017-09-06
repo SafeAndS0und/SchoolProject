@@ -36,13 +36,6 @@ public class TeacherPanelScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	startText.setText("");
-//    	startText.setText("W tym oknie masz dostêpne trzy mo¿liwoœci:" +
-//                "\n" +
-//                "\nUtwórz Quiz - Pozwoli ci dodaæ nowe pytania, a na koñcu postawiæ serwer, do którego bêd¹ mogli po³¹czyæ siê uczniowie" +
-//                "\n" +
-//                "\nWyloguj - Wylogowuje Ciê" +
-//                "\n" +
-//                "\nWyniki - Po utworzeniu quizu i postawieniu serwera bêd¹ wyœwietlaæ siê tam wyniki uczniów");
     	zaladuj.setText("Za³aduj poprzednie "
     			+ "\n"
     			+ " pytania");
@@ -70,12 +63,16 @@ public class TeacherPanelScreenController implements Initializable {
     @FXML
     public void options() {
     	try{
-            Parent root = FXMLLoader.load(getClass().getResource("HelpWindow.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.setTitle("Quiz");
-            stage.show();
+            FXMLLoader root = FXMLLoader.load(this.getClass().getResource("HelpWindow.fxml"));
+            Pane pane = null;
+            try {
+                pane = root.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            setScene(pane);
+
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -86,7 +83,7 @@ public class TeacherPanelScreenController implements Initializable {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));
             Stage stage = new Stage();
-            stage.setScene(new Scene(root,650,350));
+            stage.setScene(new Scene(root,1200,740));
             stage.setResizable(false);
             stage.setTitle("Quiz");
             stage.show();

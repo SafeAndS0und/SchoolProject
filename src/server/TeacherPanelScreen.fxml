@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -7,22 +11,25 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="700.0">
+      <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: Gainsboro n;">
          <children>
-            <Label fx:id="startText" layoutX="14.0" layoutY="475.0" lineSpacing="1.0" prefHeight="15.0" prefWidth="30.0" text="Label" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Label fx:id="startText" layoutX="20.0" layoutY="319.0" lineSpacing="1.0" prefHeight="15.0" prefWidth="30.0" text="Label" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <AnchorPane fx:id="window" layoutX="186.0" layoutY="10.0" prefHeight="480.0" prefWidth="500.0" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="27.0" prefWidth="123.0" text="Stwórz kartkówkę" />
-            <Button layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#showResults" prefHeight="27.0" prefWidth="123.0" text="Wyniki" />
-            <Button layoutX="14.0" layoutY="120.0" mnemonicParsing="false" onAction="#options" prefHeight="27.0" prefWidth="123.0" text="Pomoc" />
-            <Button layoutX="14.0" layoutY="154.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="123.0" text="Wyloguj" />
-            <CheckBox fx:id="usePrevious" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="0.0" />
-            <Label fx:id="zaladuj" layoutX="32.0" layoutY="42.0" prefHeight="38.0" prefWidth="132.0" text="text" />
+            <AnchorPane fx:id="window" layoutX="186.0" layoutY="10.0" prefHeight="480.0" prefWidth="500.0" style="-fx-background-color: HoneyDew;" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="40.0" prefWidth="123.0" text="Stwórz kartkówkę" />
+            <Button layoutX="14.0" layoutY="120.0" mnemonicParsing="false" onAction="#showResults" prefHeight="40.0" prefWidth="123.0" text="Wyniki" />
+            <Button layoutX="14.0" layoutY="185.0" mnemonicParsing="false" onAction="#options" prefHeight="40.0" prefWidth="123.0" text="Pomoc" />
+            <Button layoutX="14.0" layoutY="250.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="123.0" text="Wyloguj" />
+            <CheckBox fx:id="usePrevious" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="0.0" />
+            <Label fx:id="zaladuj" layoutX="35.0" layoutY="60.0" prefHeight="38.0" prefWidth="116.0" text="text">
+               <font>
+                  <Font name="Corbel" size="12.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </children>

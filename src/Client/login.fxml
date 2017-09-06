@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.LoginScreenController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="415.0" style="-fx-border-color: FloralWhite; -fx-border-width: 255;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.LoginScreenController">
    <children>
       <TextField fx:id="username" layoutX="34.0" layoutY="75.0" promptText="imię" />
       <TextField fx:id="ipAddress" layoutX="34.0" layoutY="120.0" promptText="adres IP serwera" />
@@ -15,9 +15,9 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="31.0" prefHeight="25.0" prefWidth="149.0" text="Witaj uczniu! :) ">
+      <Label layoutX="44.0" layoutY="31.0" prefHeight="25.0" prefWidth="149.0" text="Witaj uczniu! :) ">
          <font>
-            <Font name="System Italic" size="13.0" />
+            <Font name="System Italic" size="18.0" />
          </font>
       </Label>
    </children>

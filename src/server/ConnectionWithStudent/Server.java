@@ -84,15 +84,17 @@ public class Server {
 
         }
     }
-
-   Results results = Results.getInstance();
+    Results results = Results.getInstance();
     public void getFromClient() {
         try {
             while (true) {
                 DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
                 information = dataInputStream.readUTF();
-                results.setName(information);
-                results.setResult(information);
+                Answer answer = new Answer();
+                answer.setName(information);
+                information = dataInputStream.readUTF();
+                answer.setResult(information);
+                results.getList().add(answer);
                 counter++;
                 results.setHowManyStudents(counter);
 
@@ -101,6 +103,7 @@ public class Server {
             System.out.println(clientSocket.getInetAddress().getHostAddress() + " disconnected.");
         }
     }
+
 
     public static void serverStart() {
         Server s = new Server();
