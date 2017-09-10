@@ -36,7 +36,7 @@ public class TeacherPanelScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	startText.setText("");
-    	zaladuj.setText("Za³aduj poprzednie "
+    	zaladuj.setText("Zaladuj poprzednie "
     			+ "\n"
     			+ " pytania");
 

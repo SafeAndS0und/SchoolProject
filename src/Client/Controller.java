@@ -77,27 +77,27 @@ public class Controller implements Initializable {
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
-                    next.setText("Następne pytanie");
+                    next.setText("Nastepne pytanie");
                 } else if (b.isSelected() && correct.equals("B")) {
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
-                    next.setText("Następne pytanie");
+                    next.setText("Nastepne pytanie");
                 } else if (c.isSelected() && correct.equals("C")) {
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
-                    next.setText("Następne pytanie");
+                    next.setText("Nastepne pytanie");
                 } else if (d.isSelected() && correct.equals("D")) {
                     ifGood = true;
                     goodAnswers++;
                     System.out.println(goodAnswers);
-                    next.setText("Następne pytanie");
+                    next.setText("Nastepne pytanie");
 
                 } else {
 
                     ifGood = false;
-                    next.setText("Następne pytanie");
+                    next.setText("Nastepne pytanie");
                 }
             }
         } catch (Exception e) {
@@ -114,8 +114,12 @@ public class Controller implements Initializable {
             next.setVisible(false);
             clientState.setGoodAnswers(goodAnswers + " dobrych odpowiedzi na " + allQ + "." );
 
-            ifCorrect.setText("Koniec pytań, twoje imię oraz wyniki zostały wysłane do nauczyciela!");
+            ifCorrect.setText("Koniec pytan, twoje imie oraz wyniki zostaly wyslane do nauczyciela.");
             client.sendInfo();
+            if(client.questionsList.size()==0){
+                ifCorrect.setText("Na podanym adresie IP nie ma otwartego serwera.");
+
+            }
 
           //  e.printStackTrace();
         }

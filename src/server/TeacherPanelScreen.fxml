@@ -13,14 +13,14 @@
 
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.TeacherPanelScreenController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: Gainsboro n;">
+      <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: derive(Lavender    ,10%);">
          <children>
             <Label fx:id="startText" layoutX="20.0" layoutY="319.0" lineSpacing="1.0" prefHeight="15.0" prefWidth="30.0" text="Label" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
-            <AnchorPane fx:id="window" layoutX="186.0" layoutY="10.0" prefHeight="480.0" prefWidth="500.0" style="-fx-background-color: HoneyDew;" />
+            <AnchorPane fx:id="window" layoutX="186.0" layoutY="10.0" prefHeight="480.0" prefWidth="500.0" style="-fx-background-color: derive(Lavender    ,45%);" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTheQuiz" prefHeight="40.0" prefWidth="123.0" text="Stwórz kartkówkę" />
             <Button layoutX="14.0" layoutY="120.0" mnemonicParsing="false" onAction="#showResults" prefHeight="40.0" prefWidth="123.0" text="Wyniki" />
             <Button layoutX="14.0" layoutY="185.0" mnemonicParsing="false" onAction="#options" prefHeight="40.0" prefWidth="123.0" text="Pomoc" />

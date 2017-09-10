@@ -122,11 +122,11 @@ public class AddQuestionController implements Initializable {
 		checkCheckBoxs();
 		if (questionField.getText().isEmpty() || answerA.getText().isEmpty() || answerB.getText().isEmpty()
 				|| answerC.getText().isEmpty() || answerD.getText().isEmpty() || category.getText().isEmpty()) {
-			wrong.setText("Wypełnij wszystkie pola!");
+			wrong.setText("Wypelnij wszystkie pola!");
 		} else if (selectedCheckBoxs == 0) {
-			wrong.setText("Wybierz poprawną odpowiedź!");
+			wrong.setText("Wybierz poprawna odpowiedz!");
 		} else if (selectedCheckBoxs > 1) {
-			wrong.setText("Zaznacz tylko jedna poprawną odpowiedź!");
+			wrong.setText("Zaznacz tylko jedna poprawna odpowiedz!");
 		} else {
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school_project", "root", "");
@@ -146,7 +146,7 @@ public class AddQuestionController implements Initializable {
 				prepstmt.setString(8,category.getText());
 				prepstmt.execute();
 				howManyQuestions++;
-				wrong.setText("Dodano pytanie " + howManyQuestions+"!");
+				wrong.setText("Dodano pytanie numer " + howManyQuestions);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -155,7 +155,8 @@ public class AddQuestionController implements Initializable {
 	}
 	public void startQuiz() {
 		server.ConnectionWithStudent.Server.serverStart();
-		wrong.setText("Postawiono serwer z dodanymi pytaniami, przejdź teraz do zakładki 'Wyniki'!");
+		wrong.setText("Postawiono serwer z dodanymi pytaniami, przejdz teraz do zakladki 'Wyniki'");
+		wrong.setStyle("-fx-font-size: 91%;");
 
 //		try{
 //			Parent root = FXMLLoader.load(getClass().getResource("Results.fxml"));

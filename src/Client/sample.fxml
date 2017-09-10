@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="340.0" style="-fx-background-color: FloralWhite;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="340.0" style="-fx-background-color: derive(Lavender    ,25%);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
    <children>
       <Button fx:id="next" layoutX="104.0" layoutY="349.0" mnemonicParsing="false" onAction="#readQuestion" prefHeight="49.0" prefWidth="133.0" text="Start" />
       <Label fx:id="question" alignment="TOP_LEFT" layoutX="24.0" layoutY="18.0" prefHeight="97.0" prefWidth="292.0" text="Kliknij start i jeśli serwer aktualnie pracuje wyświetlą ci się pytania!" wrapText="true">

@@ -9,38 +9,110 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ResultsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: derive(Lavender    ,15%);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ResultsController">
    <children>
       <Label layoutX="31.0" layoutY="21.0" prefHeight="28.0" prefWidth="511.0" text="Tutaj będą pojawiać się wyniki uczniów kiedy ukończą Quiz">
          <font>
             <Font name="Corbel" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="n1" layoutX="32.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r1" layoutX="32.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
+      <Label fx:id="n1" layoutX="32.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r1" layoutX="32.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
       <Button layoutX="559.0" layoutY="15.0" mnemonicParsing="false" onAction="#refresh" prefHeight="42.0" prefWidth="81.0" style="-fx-border-radius: 5;" text="Odśwież" />
-      <Label fx:id="r4" layoutX="31.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n4" layoutX="31.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n7" layoutX="31.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r7" layoutX="31.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r8" layoutX="409.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n8" layoutX="409.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n5" layoutX="409.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r5" layoutX="409.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r2" layoutX="410.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n2" layoutX="410.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n6" layoutX="789.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r3" layoutX="790.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r9" layoutX="789.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n3" layoutX="790.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r6" layoutX="789.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n9" layoutX="789.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r12" layoutX="796.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r10" layoutX="38.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="r11" layoutX="416.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n12" layoutX="796.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n10" layoutX="38.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
-      <Label fx:id="n11" layoutX="416.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER" />
+      <Label fx:id="r4" layoutX="31.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n4" layoutX="31.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n7" layoutX="31.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r7" layoutX="31.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r8" layoutX="409.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n8" layoutX="409.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n5" layoutX="409.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r5" layoutX="409.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r2" layoutX="410.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n2" layoutX="410.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n6" layoutX="789.0" layoutY="232.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r3" layoutX="790.0" layoutY="127.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r9" layoutX="789.0" layoutY="450.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n3" layoutX="790.0" layoutY="79.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r6" layoutX="789.0" layoutY="280.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n9" layoutX="789.0" layoutY="402.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r12" layoutX="796.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r10" layoutX="38.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="r11" layoutX="416.0" layoutY="623.0" prefHeight="42.0" prefWidth="367.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n12" layoutX="796.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n10" layoutX="38.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="n11" layoutX="416.0" layoutY="575.0" prefHeight="42.0" prefWidth="240.0" style="-fx-border-style: solid; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 3;" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font></Label>
       <Label fx:id="howMany" layoutX="755.0" layoutY="15.0" prefHeight="42.0" prefWidth="41.0" text="0" textFill="#0883e8">
          <font>
             <Font name="Consolas" size="27.0" />
